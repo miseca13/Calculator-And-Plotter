@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Calculadora.GraficadorUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calculadora"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <StackPanel Orientation="Vertical" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,-20">
+        <StackPanel.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform AngleX="0.191"/>
+                <RotateTransform/>
+                <TranslateTransform X="0.833"/>
+            </TransformGroup>
+        </StackPanel.RenderTransform>
+        <Label  HorizontalContentAlignment="Center" Foreground="{StaticResource Color.Foreground}" FontSize="18" Background="Transparent" BorderBrush="Transparent" Content="Este apartado gráfica funciones polinomiales" HorizontalAlignment="Center" />
+
+        <local:GraficaUserControl x:Name="GraficaUser" Width="380" Height="350" Visibility="Visible"></local:GraficaUserControl>
+        <Label x:Name="lbError" Height="350" HorizontalContentAlignment="Center" Foreground="{StaticResource Color.Foreground}" FontSize="18" Background="Transparent" BorderBrush="Transparent" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">Error</Label>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Foreground="{StaticResource Color.Foreground.Result}" FontSize="35" Background="Transparent" BorderBrush="Transparent">f(x) =</Label>
+            <TextBox x:Name="tbInput" Foreground="{StaticResource Color.Foreground}" FontSize="35" Background="Transparent" BorderBrush="Transparent">x-3</TextBox>
+            <Button Style="{DynamicResource RoundButtonOperator}" Height="60" Width="60" x:Name="btnGraficar" Click="btnGraficar_Click">Ver</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Foreground="{StaticResource Color.Foreground.Result}" FontSize="20" Background="Transparent" BorderBrush="Transparent">x1:</Label>
+            <TextBox x:Name="tbX1" Foreground="{StaticResource Color.Foreground}" FontSize="20" Background="Transparent" BorderBrush="Transparent" Width="50">-10</TextBox>
+            <Label Foreground="{StaticResource Color.Foreground.Result}" FontSize="20" Background="Transparent" BorderBrush="Transparent">x2:</Label>
+            <TextBox x:Name="tbX2" Foreground="{StaticResource Color.Foreground}" FontSize="20" Background="Transparent" BorderBrush="Transparent" Width="50">10</TextBox>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

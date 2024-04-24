@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Calculadora.CalculadoraUserControll" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calculadora"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <!-- Definición de las etiquetas de namespaces utilizados -->
+
+    <StackPanel Orientation="Vertical">
+        <!-- Un StackPanel vertical para organizar los elementos en la interfaz gráfica. -->
+        <!-- Un TextBox para mostrar la entrada del usuario. -->
+
+        <!-- Un StackPanel vertical para organizar los elementos en la interfaz gráfica. -->
+
+        <TextBox x:Name="tbInput" FontSize="30" Background="Transparent" BorderBrush="Transparent" Foreground="{StaticResource Color.Foreground}" HorizontalContentAlignment="Right" Padding="3" PreviewTextInput="tbInput_PreviewTextInput" TextChanged="tbInput_TextChanged" Text="5*-3+12"/>
+        <!-- Un TextBox para mostrar la entrada del usuario. -->
+
+        <TextBox IsReadOnly="True" x:Name="tbOutput" Margin="5,0,5,20" FontSize="20" Background="Transparent" BorderBrush="Transparent" Foreground="{StaticResource Color.Foreground.Result}" HorizontalContentAlignment="Right" Padding="5" Text="-3"/>
+        <!-- Un TextBox de solo lectura para mostrar el resultado de la evaluación de la expresión. -->
+
+        <Grid Width="400" >
+            <!-- Un Grid para organizar los botones en una cuadrícula de 5x4. -->
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Definición de cuatro filas con igual tamaño. -->
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Definición de cinco columnas con igual tamaño. -->
+
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Height="70" Width="150" Click="ButtonNumberOperator_Click" Content="0"/>
+            <!-- Botón para el dígito "0". Ocupa dos columnas y se encuentra en la última fila. -->
+
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="0" Grid.Row="2" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="1"/>
+            <!-- Botón para el dígito "1". Se encuentra en la segunda fila y primera columna. -->
+
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="1" Grid.Row="2" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="2"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="2" Grid.Row="2" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="3"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="0" Grid.Row="1" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="4"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="1" Grid.Row="1" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="5"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="2" Grid.Row="1" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="6" />
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="0" Grid.Row="0" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="7"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="1" Grid.Row="0" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="8"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="2" Grid.Row="0" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="9"/>
+            <Button Style="{DynamicResource RoundButtonNumber}" Grid.Column="2" Grid.Row="3" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="."/>
+            <!-- Otros botones para los dígitos del 2 al 9 y el punto decimal, organizados en la cuadrícula. -->
+
+            <Button Style="{DynamicResource RoundButtonOperator}" Grid.Column="3" Grid.Row="0" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="+"/>
+            <!-- Botón de suma. Se encuentra en la primera fila y cuarta columna. -->
+
+            <Button Style="{DynamicResource RoundButtonOperator}" Grid.Column="3" Grid.Row="1" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="-"/>
+            <!-- Botón de resta. Se encuentra en la segunda fila y cuarta columna. -->
+
+            <Button Style="{DynamicResource RoundButtonOperator}" Grid.Column="3" Grid.Row="2" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="*"/>
+            <!-- Botón de multiplicación. Se encuentra en la tercera fila y cuarta columna. -->
+
+            <Button Style="{DynamicResource RoundButtonOperator}" Grid.Column="3" Grid.Row="3" Height="70" Width="70" Click="ButtonNumberOperator_Click" Content="/"/>
+            <!-- Botón de división. Se encuentra en la cuarta fila y cuarta columna. -->
+
+            <Button x:Name="btnDelete" Style="{DynamicResource RoundButtonOperator}" Grid.Column="4" Grid.Row="0" Height="70" Width="70" Click="btnDelete_Click" Content="CE"/>
+            <!-- Botón para borrar el último carácter de la entrada. Se encuentra en la primera fila y quinta columna. -->
+
+            <Button x:Name="btnDeleteAll" Style="{DynamicResource RoundButtonOperator}" Grid.Column="4" Grid.Row="1" Height="70" Width="70" Click="btnDeleteAll_Click" Content="C"/>
+            <!-- Botón para borrar toda la entrada. Se encuentra en la segunda fila y quinta columna. -->
+
+            <Button x:Name="btnIgual" Style="{DynamicResource RoundButtonEqual}" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Height="150" Width="70" Click="btnIgual_Click" Content="="/>
+            <!-- Botón para calcular el resultado de la expresión. Ocupa dos filas y se encuentra en la tercera fila y quinta columna. -->
+            <!-- ListBox para mostrar el historial -->
+        </Grid>
+        <!-- Un ScrollView para permitir desplazamiento si hay muchos elementos en el ListBox. -->
+        <ScrollViewer x:Name="stack" VerticalScrollBarVisibility="Auto" MaxHeight="100" MouseDown="stack_MouseDown">
+            <ListBox x:Name="historialListBox" BorderBrush="Transparent" Background="Transparent" Foreground="{StaticResource Color.Foreground.Result}" HorizontalContentAlignment="Left" />
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>
