@@ -2,7 +2,7 @@
 Calculator with function plotter
 
 # Calculator
-![image](https://github.com/miseca13/CS_CalculatorAndPlotter/assets/76502563/cdca95ef-d7d5-4d61-980e-71d916ec9117)
+![imC](https://github.com/miseca13/CS_CalculatorAndPlotter/assets/76502563/4ac94ae1-ee0e-4b3a-8d3d-703f53915d38)
 
 # Plotter
-![image](https://github.com/miseca13/CS_CalculatorAndPlotter/assets/76502563/cef06934-ca1d-4a2e-8b7e-eb96f87b3de5)
+![inP](https://github.com/miseca13/CS_CalculatorAndPlotter/assets/76502563/e31cb42a-e10e-4477-a9c2-2da0f5b28ebf)
